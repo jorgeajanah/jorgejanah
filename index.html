@@ -5,133 +5,105 @@ export default function AILawWebsite() {
   const cards = [
     {
       title: "Privacy",
-      text: "AI systems often collect and analyze huge amounts of personal data. AI law focuses on how that data is gathered, stored, and used.",
+      text: "AI systems collect lots of personal data. Laws try to control how it is used.",
       icon: Eye,
     },
     {
-      title: "Bias and Fairness",
-      text: "Laws and regulations try to reduce discrimination in AI tools used for hiring, policing, healthcare, and education.",
+      title: "Bias",
+      text: "AI can be unfair. Laws try to prevent discrimination.",
       icon: Scale,
     },
     {
       title: "Copyright",
-      text: "A major legal question is whether AI can be trained on books, art, music, and online content without permission.",
+      text: "Can AI use art and content without permission? Big legal debate.",
       icon: FileText,
     },
     {
-      title: "Accountability",
-      text: "When an AI system causes harm, people ask who is responsible: the developer, the company, or the user.",
+      title: "Responsibility",
+      text: "If AI causes harm, who is responsible?",
       icon: Gavel,
     },
   ];
 
-  const timeline = [
-    {
-      year: "2018",
-      event: "Governments and legal experts began paying closer attention to AI ethics and regulation.",
-    },
-    {
-      year: "2021",
-      event: "The European Union moved forward with the AI Act, one of the most well-known attempts to regulate AI.",
-    },
-    {
-      year: "2023",
-      event: "Generative AI tools became mainstream, raising new questions about copyright, deepfakes, and misinformation.",
-    },
-    {
-      year: "Today",
-      event: "Countries, schools, and businesses are still debating how to balance innovation with safety and rights.",
-    },
-  ];
-
-  const examples = [
-    "Can AI-generated art copy a real artist’s style?",
-    "Should schools allow AI tools in essays and homework?",
-    "Can companies use AI to decide who gets hired?",
-    "Who is responsible when self-driving technology makes a mistake?",
-  ];
-
   return (
-    <div className="min-h-screen bg-[#07111f] text-white selection:bg-cyan-300/30">
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-[-10%] top-[-8%] h-96 w-96 rounded-full bg-cyan-400/12 blur-3xl" />
-        <div className="absolute right-[-10%] top-[10%] h-[28rem] w-[28rem] rounded-full bg-indigo-500/12 blur-3xl" />
-        <div className="absolute bottom-[-10%] left-[20%] h-80 w-80 rounded-full bg-blue-500/10 blur-3xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_35%)]" />
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-[#020617] via-[#0f172a] to-[#1e293b] text-white">
+      {/* GRID BACKGROUND */}
+      <div className="fixed inset-0 -z-10 opacity-20 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
-      <section className="relative overflow-hidden border-b border-white/10">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:px-14 lg:py-28">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
-          >
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-white/5 px-4 py-2 text-sm text-cyan-200 backdrop-blur-md">
-              <Sparkles className="h-4 w-4" />
-              The intersection of technology and justice
-            </div>
+      {/* HERO */}
+      <section className="px-6 py-24 text-center">
+        <h1 className="text-6xl font-black">
+          AI <span className="text-cyan-400">Law</span>
+        </h1>
+        <p className="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
+          AI law is about controlling how artificial intelligence is used so it stays safe fair and legal.
+        </p>
+      </section>
 
-            <h1 className="text-5xl font-black leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
-              AI <span className="bg-gradient-to-r from-cyan-300 via-blue-300 to-indigo-300 bg-clip-text text-transparent">Law</span>
-            </h1>
+      {/* BOX SECTION */}
+      <section className="px-6 pb-20 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold mb-10 text-center">Main Issues</h2>
 
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
-              AI law explores how artificial intelligence should be created, used, and controlled. It focuses on privacy, fairness, copyright, safety, and who should be held responsible when AI causes harm.
-            </p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="#issues"
-                className="group inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-3.5 font-semibold text-slate-900 shadow-2xl shadow-cyan-500/10 transition hover:-translate-y-0.5"
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {cards.map((card, i) => {
+            const Icon = card.icon;
+            return (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-lg shadow-xl hover:scale-105 transition"
               >
-                Explore topic
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href="#timeline"
-                className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3.5 font-semibold text-white backdrop-blur-md transition hover:bg-white/10"
-              >
-                View timeline
-              </a>
-            </div>
-
-            <div className="mt-12 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-                <p className="text-2xl font-bold text-cyan-300">01</p>
-                <p className="mt-2 text-sm text-slate-300">Protect rights and personal data</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-                <p className="text-2xl font-bold text-cyan-300">02</p>
-                <p className="mt-2 text-sm text-slate-300">Reduce unfair or biased outcomes</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-md">
-                <p className="text-2xl font-bold text-cyan-300">03</p>
-                <p className="mt-2 text-sm text-slate-300">Decide who is accountable</p>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="relative"
-          >
-            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-cyan-400/20 to-indigo-500/20 blur-2xl" />
-            <div className="relative rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl">
-              <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-slate-950/60 px-4 py-3">
-                <div className="flex items-center gap-3">
-                  <div className="rounded-xl bg-cyan-400/10 p-2 text-cyan-300">
-                    <Shield className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-400">Core idea</p>
-                    <p className="font-semibold">Responsible innovation</p>
-                  </div>
+                <div className="bg-cyan-400/10 p-3 rounded-xl w-fit">
+                  <Icon className="text-cyan-300" />
                 </div>
-                <Cpu className="h-5 w-5 text-slate-400" />
-              </div>
+                <h3 className="mt-4 text-xl font-semibold">{card.title}</h3>
+                <p className="mt-3 text-gray-300 text-sm leading-6">
+                  {card.text}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
 
-              <div className="mt-5 space-y-4">
+      {/* INFO BOXES */}
+      <section className="px-6 pb-20 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-6 shadow-xl">
+            <h3 className="text-xl font-bold">Why it matters</h3>
+            <p className="mt-3 text-gray-300">
+              AI is used everywhere so laws are needed to protect people.
+            </p>
+          </div>
+
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-6 shadow-xl">
+            <h3 className="text-xl font-bold">Main goal</h3>
+            <p className="mt-3 text-gray-300">
+              Make AI helpful without causing harm.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* EXAMPLES */}
+      <section className="px-6 pb-20 max-w-5xl mx-auto">
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-8 shadow-xl">
+          <h2 className="text-2xl font-bold">Real Questions</h2>
+          <ul className="mt-6 space-y-3 text-gray-300">
+            <li>Can AI copy art?</li>
+            <li>Should students use AI?</li>
+            <li>Can AI decide jobs?</li>
+            <li>Who is responsible for AI mistakes?</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="text-center py-6 text-gray-500">
+        AI Law Website
+      </footer>
+    </div>
+  );
+}
